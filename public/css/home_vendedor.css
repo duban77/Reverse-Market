@@ -1,0 +1,376 @@
+        /* Reset y tipografía */
+        * {
+            box-sizing: border-box; /* Hace que el padding y border se incluyan en el tamaño total del elemento */
+        }
+        body {
+            margin: 0; /* Quita el margen por defecto del body */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Define la tipografía principal */
+            background: linear-gradient(135deg, #4facfe, #00f2fe); /* Fondo con degradado diagonal azul-verde */
+            color: #fff; /* Color de texto blanco */
+            min-height: 100vh; /* Altura mínima para que cubra toda la ventana */
+            display: flex; /* Usa flexbox para layout */
+            flex-direction: column; /* Los hijos se colocan en columna */
+        }
+        header {
+            background: rgba(0,0,0,0.7); /* Fondo negro semitransparente */
+            padding: 1rem 2rem; /* Espaciado interno arriba-abajo y lados */
+            display: flex; /* Layout flexbox */
+            align-items: center; /* Centra verticalmente */
+            justify-content: space-between; /* Espacio entre los elementos */
+            flex-wrap: wrap; /* Permite que los elementos hagan wrap si no caben */
+            position: sticky; /* Se queda fijo al hacer scroll */
+            top: 0; /* Pegado arriba de la página */
+            z-index: 1000; /* Nivel de apilamiento alto para estar encima */
+        }
+        header h1 {
+            font-weight: 700; /* Texto en negrita */
+            font-size: 1.8rem; /* Tamaño de fuente */
+            letter-spacing: 1px; /* Espacio entre letras */
+            margin: 0; /* Sin margen */
+            user-select: text; /* Permite seleccionar el texto */
+        }
+        .perfil {
+            display: flex; /* Flexbox para layout horizontal */
+            align-items: center; /* Centra verticalmente */
+            gap: 1rem; /* Espacio entre hijos */
+            position: relative; /* Para posicionar elementos hijos absolutos */
+        }
+        .perfil img {
+            width: 50px; height: 50px; /* Tamaño fijo de la imagen */
+            border-radius: 50%; /* Imagen redonda */
+            border: 2px solid #fff; /* Borde blanco */
+        }
+        .perfil-info {
+            max-width: 220px; /* Máximo ancho para el bloque de info */
+            user-select: none; /* No permite seleccionar texto */
+        }
+        .perfil-info strong {
+            display: block; /* Se muestra como bloque */
+            font-size: 1.1rem; /* Tamaño de texto */
+            margin-bottom: 0.2rem; /* Margen inferior pequeño */
+        }
+        .notificaciones {
+            background: #27ae60; /* Fondo verde */
+            cursor: pointer; /* Cursor de mano */
+            border-radius: 50%; /* Forma circular */
+            width: 35px; height: 35px; /* Tamaño cuadrado */
+            display: flex; /* Flex para centrar contenido */
+            align-items: center; /* Centrado vertical */
+            justify-content: center; /* Centrado horizontal */
+            font-size: 1.3rem; /* Tamaño del icono/texto */
+            color: white; /* Color blanco */
+            box-shadow: 0 0 10px #27ae60aa; /* Sombra verde translúcida */
+            transition: transform 0.3s ease; /* Transición suave para transformaciones */
+            user-select: none; /* No permite seleccionar */
+        }
+        .notificaciones:hover {
+            transform: scale(1.2); /* Aumenta tamaño al pasar el mouse */
+        }
+        nav {
+            background: rgba(0,0,0,0.6); /* Fondo negro semi-transparente */
+            padding: 0.5rem; /* Espacio interno */
+            display: flex; /* Flexbox layout */
+            justify-content: center; /* Centra horizontalmente */
+            gap: 1rem; /* Espacio entre botones */
+            flex-wrap: wrap; /* Permite que se ajusten en varias líneas */
+            position: sticky; /* Se queda fijo al hacer scroll */
+            top: 72px; /* Ubicación debajo del header (72px de altura) */
+            z-index: 999; /* Nivel de apilamiento alto */
+        }
+        nav button {
+            background: transparent; /* Fondo transparente */
+            border: 2px solid #fff; /* Borde blanco */
+            color: #fff; /* Texto blanco */
+            padding: 0.5rem 1.2rem; /* Espaciado interno vertical y horizontal */
+            border-radius: 30px; /* Bordes redondeados */
+            font-weight: 600; /* Texto semi-negrita */
+            letter-spacing: 1px; /* Espacio entre letras */
+            cursor: pointer; /* Cursor de mano */
+            transition: all 0.3s ease; /* Transición suave para todos los cambios */
+            user-select: none; /* No permite seleccionar */
+            outline: none; /* Sin borde al enfocar */
+        }
+        nav button:hover,
+        nav button.active {
+            background: #fff; /* Fondo blanco */
+            color: #4caf50; /* Texto verde */
+            box-shadow: 0 4px 15px rgba(76,175,80,0.5); /* Sombra verde */
+        }
+        main {
+            flex-grow: 1; /* Ocupa espacio restante */
+            background: rgba(255,255,255,0.1); /* Fondo blanco translúcido */
+            margin: 2rem auto 2rem; /* Margen arriba y abajo, centrado horizontal */
+            padding: 1rem 1.5rem; /* Espaciado interno */
+            max-width: 960px; /* Ancho máximo */
+            border-radius: 10px; /* Bordes redondeados */
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2); /* Sombra suave */
+            overflow-y: auto; /* Scroll vertical si contenido excede */
+        }
+        h2.section-title {
+            margin-bottom: 1rem; /* Margen inferior */
+            font-weight: 700; /* Negrita */
+            font-size: 1.5rem; /* Tamaño texto */
+            text-align: center; /* Centrado */
+            letter-spacing: 1px; /* Espaciado letras */
+        }
+        section {
+            display: none; /* Se ocultan por defecto */
+        }
+        section.active {
+            display: block; /* Se muestran si tienen clase active */
+        }
+        .producto-lista {
+            list-style: none; /* Sin viñetas */
+            padding: 0; /* Sin padding */
+            display: grid; /* Grid layout */
+            grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); /* Columnas adaptativas */
+            gap: 1rem; /* Espacio entre elementos */
+        }
+        .producto-item {
+            background: rgba(255,255,255,0.15); /* Fondo translúcido blanco */
+            padding: 1rem; /* Espacio interno */
+            border-radius: 10px; /* Bordes redondeados */
+            box-shadow: 0 4px 15px rgba(255,255,255,0.1); /* Sombra blanca tenue */
+            transition: transform 0.3s ease; /* Transición para transformaciones */
+            user-select: text; /* Permite seleccionar texto */
+        }
+        .producto-item:hover {
+            transform: translateY(-5px); /* Eleva ligeramente al pasar el mouse */
+            background: rgba(255,255,255,0.3); /* Fondo más claro */
+        }
+        .producto-item h3 {
+            margin: 0 0 0.5rem 0; /* Margen inferior pequeño */
+        }
+        button.compra-btn {
+            margin-top: 0.8rem; /* Margen arriba */
+            background: #4caf50; /* Fondo verde */
+            border: none; /* Sin borde */
+            color: white; /* Texto blanco */
+            padding: 0.5rem 1rem; /* Espacio interno */
+            border-radius: 25px; /* Bordes redondeados */
+            cursor: pointer; /* Cursor de mano */
+            box-shadow: 0 4px 10px rgba(76,175,80,0.6); /* Sombra verde */
+            transition: background-color 0.3s ease; /* Transición en el color de fondo */
+            user-select: none; /* No permite seleccionar */
+        }
+        button.compra-btn:hover {
+            background-color: #388e3c; /* Fondo verde más oscuro al hover */
+        }
+        .perfil-info-seccion {
+            max-width: 600px; /* Ancho máximo */
+            margin: 0 auto; /* Centrado horizontal */
+            background: rgba(255,255,255,0.2); /* Fondo translúcido */
+            border-radius: 12px; /* Bordes redondeados */
+            padding: 1rem 2rem; /* Espaciado interno */
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3); /* Sombra */
+            user-select: text; /* Permite seleccionar texto */
+        }
+        .perfil-info-seccion p {
+            font-size: 1.1rem; /* Tamaño texto */
+            margin: 0.5rem 0; /* Margen vertical */
+        }
+        @media(max-width: 600px) {
+            header {
+                flex-direction: column; /* Cambia layout a columna */
+                align-items: flex-start; /* Alinea a la izquierda */
+                gap: 1rem; /* Espacio entre elementos */
+            }
+            nav {
+                gap: 1rem; /* Espacio entre botones */
+                top: auto; /* Quita posición sticky arriba */
+                position: relative; /* Posición normal */
+            }
+            .producto-lista {
+                grid-template-columns: 1fr; /* Una columna para pantallas pequeñas */
+            }
+            main {
+                margin-top: 1rem; /* Margen superior menor */
+            }
+        }
+  #contador-notificaciones {
+      position: absolute; /* Posicionamiento absoluto */
+      top: -5px; /* Desplazado arriba */
+      right: -5px; /* Desplazado a la derecha */
+      background: red; /* Fondo rojo */
+      color: white; /* Texto blanco */
+      border-radius: 50%; /* Forma circular */
+      padding: 2px 6px; /* Espaciado interno */
+      font-size: 12px; /* Tamaño de texto pequeño */
+      display: none; /* Oculto por defecto */
+    }
+    #contenedor-notificaciones {
+      display: none; /* Oculto por defecto */
+      position: absolute; /* Posición absoluta */
+      top: 30px; /* Separado del top */
+      right: 0; /* Alineado a la derecha */
+      background: #fff; /* Fondo blanco */
+      border: 1px solid #ccc; /* Borde gris claro */
+      width: 300px; /* Ancho fijo */
+      max-height: 400px; /* Altura máxima */
+      overflow-y: auto; /* Scroll vertical si hay overflow */
+      z-index: 1000; /* Por encima */
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1); /* Sombra suave */
+    }
+    .notificacion-item {
+      padding: 10px; /* Espacio interno */
+      border-bottom: 1px solid #ddd; /* Línea divisoria */
+      background: #f9f9f9; /* Fondo claro */
+      color: #222; /* Texto oscuro */
+    }
+    .notificacion-item strong {
+      color: #333; /* Texto un poco más oscuro */
+    }
+    main section {
+      display: none; /* Oculto por defecto */
+    }
+    main section.active {
+      display: block; /* Visible cuando está activo */
+    }
+    /*pagos*/
+
+#pagos {
+  background: linear-gradient(to right, #00c9ff, #92fe9d); /* Fondo degradado horizontal azul-verde */
+  padding: 2rem; /* Espacio interno */
+  border-radius: 1rem; /* Bordes redondeados */
+  box-shadow: 0 0 15px rgba(0,0,0,0.2); /* Sombra suave */
+  max-width: 600px; /* Ancho máximo */
+  margin: auto; /* Centrado horizontal */
+}
+
+.section-title {
+  text-align: center; /* Centrado del texto */
+  color: #fff; /* Texto blanco */
+  margin-bottom: 1rem; /* Margen inferior */
+  font-size: 1.8rem;    /* Tamaño del texto */
+}
+
+.form-container {
+  display: flex; /* Flexbox para layout */
+  flex-direction: column; /* Columna */
+  gap: 1.2rem; /* Espacio entre campos */
+}
+
+.form-group label {
+  font-weight: bold; /* Negrita */
+  color: #fff; /* Texto blanco */
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%; /* Ocupa todo el ancho */
+  padding: 0.7rem; /* Espaciado interno */
+  border-radius: 8px; /* Bordes redondeados */
+  border: 1px solid #ccc; /* Borde gris claro */
+  font-size: 1rem; /* Tamaño texto */
+}
+
+button[type="submit"] {
+  padding: 0.8rem; /* Espacio interno */
+  border: none; /* Sin borde */
+  border-radius: 8px; /* Bordes redondeados */
+  background-color: #007bff; /* Fondo azul */
+  color: white; /* Texto blanco */
+  font-weight: bold; /* Negrita */
+  cursor: pointer; /* Cursor mano */
+  transition: background-color 0.3s ease; /* Transición en el color */
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3; /* Fondo azul oscuro al pasar mouse */
+}
+
+/* Estilos para la lista de medios de pago guardados */
+h3 {
+  margin-top: 30px; /* Margen superior */
+  font-size: 22px; /* Tamaño texto */
+  color: #333; /* Texto oscuro */
+}
+
+.cuentas-lista {
+  list-style: none; /* Sin viñetas */
+  padding: 0; /* Sin padding */
+}
+
+.cuenta-item {
+  background-color: #ffffff; /* Fondo blanco */
+  border: 1px solid #ddd; /* Borde gris claro */
+  padding: 15px; /* Espaciado interno */
+  margin-bottom: 10px; /* Margen inferior */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Sombra muy suave */
+}
+
+.cuenta-item strong {
+  font-size: 18px; /* Tamaño texto */
+  color: #333; /* Texto oscuro */
+}
+
+.cuenta-item p {
+  margin: 5px 0; /* Margen vertical */
+  color: #666; /* Texto gris */
+}
+
+.cuenta-item p:last-child {
+  margin-bottom: 0; /* Sin margen inferior para último párrafo */
+}
+
+/* Estilo para los casos en que no haya medios de pago registrados */
+.cuentas-lista li {
+  color: #888; /* Texto gris */
+  font-style: italic; /* Cursiva */
+  text-align: center; /* Centrado */
+  padding: 20px; /* Espaciado */
+  background-color: #f0f0f0; /* Fondo gris claro */
+  border-radius: 8px; /* Bordes redondeados */
+}
+    .cuenta-item, .pago-card {
+      background: #1e1e1e; /* Fondo oscuro */
+      margin: 10px 0; /* Margen vertical */
+      padding: 15px; /* Espacio interno */
+      border-radius: 12px; /* Bordes redondeados */
+      box-shadow: 0 2px 5px rgba(255,255,255,0.1); /* Sombra blanca tenue */
+      color: #fff; /* Texto blanco */
+    }
+    .tarjetas-pago { display: flex; flex-direction: column; gap: 10px; } /* Contenedor flex columna con espacio */
+    .pago-card { display: flex; align-items: center; gap: 15px; } /* Flex fila con alineación centrada */
+    .pago-card .icono { font-size: 2rem; } /* Iconos grandes */
+    .form-container button { margin-top: 10px; } /* Margen arriba en botones */
+        .producto img,
+/* Imagenes de productos */
+.producto img,
+.producto-item img,
+.respuesta-box img {
+  max-width: 200px; /* Ancho máximo */
+  margin: 10px 0; /* Margen vertical */
+  border: 1px solid #ccc; /* Borde gris */
+  border-radius: 8px; /* Bordes redondeados */
+  cursor: pointer; /* Cursor pointer */
+  transition: transform 0.2s ease-in-out; /* Transición para transformaciones */
+}
+.producto img:hover,
+.producto-item img:hover,
+.respuesta-box img:hover {
+  transform: scale(1.05); /* Aumenta tamaño al pasar mouse */
+}
+
+/* Modal para imagen ampliada */
+#modal-imagen {
+  display: none; /* Oculto por defecto */
+  position: fixed; /* Posición fija en pantalla */
+  z-index: 9999; /* Muy arriba en apilamiento */
+  left: 0; /* Posicionado al borde izquierdo */
+  top: 0; /* Posicionado al borde superior */
+  width: 100vw; /* Ancho igual a toda la ventana */
+  height: 100vh; /* Alto igual a toda la ventana */
+  background-color: rgba(0, 0, 0, 0.85); /* Fondo negro semi-transparente */
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+}
+#modal-imagen img {
+  max-width: 90%; /* Máximo ancho 90% del contenedor */
+  max-height: 90%; /* Máximo alto 90% del contenedor */
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.5); /* Sombra blanca */
+  cursor: zoom-out; /* Cursor para indicar cerrar */
+}

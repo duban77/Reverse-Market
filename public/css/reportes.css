@@ -1,0 +1,110 @@
+/* Contenedor principal del formulario de reporte */
+/* Máximo ancho de 500px para limitar tamaño */
+/* Centrado horizontal con margen automático y separación arriba y abajo */
+/* Fondo azul claro */
+/* Padding para espacio interno */
+/* Bordes redondeados para diseño suave */
+/* Sombra ligera para dar profundidad */
+.form-reporte {
+    max-width: 500px;
+    margin: 40px auto;
+    background: rgb(162, 218, 235);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Estilo para el título (h2) dentro del formulario */
+/* Centra el texto */
+/* Margen inferior para separar del contenido siguiente */
+.form-reporte h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Estilo para etiquetas (label) dentro del formulario */
+/* Se muestran como bloques para ocupar toda la línea */
+/* Margen inferior para separar de los inputs */
+/* Texto en negrita para énfasis */
+.form-reporte label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/* Estilos para campos de texto y textarea */
+/* Ocupan todo el ancho del contenedor */
+/* Padding para espacio interno cómodo */
+/* Margen inferior para separar campos */
+/* Bordes redondeados */
+/* Borde gris claro */
+.form-reporte input,
+.form-reporte textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+/* Estilo para botón dentro del formulario */
+/* Ocupa todo el ancho disponible */
+/* Padding para tamaño cómodo */
+/* Fondo verde brillante */
+/* Texto blanco y en negrita */
+/* Sin borde */
+/* Bordes redondeados */
+/* Cursor pointer para indicar que es clickeable */
+.form-reporte button {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* Cambio de color de fondo cuando el mouse pasa sobre el botón */
+.form-reporte button:hover {
+    background-color: #218838;
+}
+
+/* Estilos base para alertas */
+/* Padding para separar texto del borde */
+/* Bordes redondeados */
+/* Margen inferior para separar de otros elementos */
+/* Texto en negrita */
+/* Ancho completo */
+/* Texto centrado */
+/* Sombra ligera para dar profundidad */
+.alert {
+    padding: 12px 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* Estilo para alertas de éxito */
+/* Fondo verde muy claro */
+/* Texto verde oscuro */
+/* Borde verde claro */
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+/* Estilo para alertas de error */
+/* Fondo rojo muy claro */
+/* Texto rojo oscuro */
+/* Borde rojo claro */
+.alert-error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}

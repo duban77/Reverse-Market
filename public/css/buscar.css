@@ -1,0 +1,53 @@
+body {
+  font-family: Arial, sans-serif; /* Fuente principal del cuerpo */
+  margin: 0;                     /* Sin margen alrededor */
+  padding: 0;                    /* Sin relleno */
+  background: linear-gradient(to right, #56cc9d, #2f80ed); /* Degradado de fondo de verde a azul */
+}
+
+header {
+  background: #004a7c;           /* Fondo azul oscuro para el header */
+  color: white;                  /* Texto blanco */
+  padding: 1em;                  /* Espaciado interno */
+  text-align: center;            /* Texto centrado */
+}
+
+main {
+  padding: 2em;                  /* Espaciado interno mayor en el main */
+}
+
+#bienvenida {
+  background: rgba(255,255,255,0.8); /* Fondo blanco semi-transparente */
+  padding: 1em;                   /* Espaciado interno */
+  border-left: 5px solid #2f80ed; /* Borde izquierdo azul */
+  margin-bottom: 1.5em;           /* Margen inferior */
+  font-weight: bold;              /* Texto en negrita */
+  border-radius: 5px;             /* Bordes redondeados */
+}
+
+input {
+  width: 100%;                   /* Ancho completo del contenedor */
+  padding: 0.7em;                /* Espaciado interno */
+  margin-bottom: 1em;            /* Margen inferior */
+  font-size: 1em;                /* Tamaño de fuente estándar */
+  border: 1px solid #ccc;        /* Borde gris claro */
+  border-radius: 6px;            /* Bordes redondeados */
+}
+
+.producto {
+  background: white;             /* Fondo blanco */
+  padding: 1em;                  /* Espaciado interno */
+  border-radius: 10px;           /* Bordes redondeados grandes */
+  margin-bottom: 1em;            /* Margen inferior */
+  box-shadow: 0 0 8px rgba(0,0,0,0.1); /* Sombra ligera para dar profundidad */
+}
+
+.producto button {
+  background: #2f80ed;           /* Fondo azul */
+  color: white;                  /* Texto blanco */
+  border: none;                  /* Sin borde */
+  padding: 0.5em 1em;            /* Espaciado interno vertical y horizontal */
+  border-radius: 6px;            /* Bordes redondeados */
+  cursor: pointer;               /* Cursor tipo mano para indicar clickeable */
+  margin-top: 0.5em;             /* Margen superior para separar del contenido anterior */
+}

@@ -1,0 +1,250 @@
+/* Estilos globales y reset básico */
+* {
+    margin: 0;                           /* Elimina margenes por defecto de todos los elementos */
+    padding: 0;                          /* Elimina relleno por defecto de todos los elementos */
+    box-sizing: border-box;              /* Incluye padding y border dentro del ancho y alto */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente por defecto */
+}
+
+body {
+    background: linear-gradient(to right, #4facfe, #00f2fe); /* Fondo degradado azul */
+    color: #333;                          /* Color de texto general */
+    padding: 20px;                       /* Espacio interno en todo el body */
+}
+
+header {
+    text-align: center;                  /* Centra el texto */
+    margin-bottom: 20px;                 /* Espacio debajo del header */
+    color: white;                       /* Color de texto blanco */
+}
+
+/* Barra superior con menú y carrito */
+.top-bar {
+    display: flex;                      /* Flexbox para distribución horizontal */
+    justify-content: space-between;    /* Separa los elementos al máximo */
+    align-items: center;                /* Centra verticalmente */
+    background-color: #0066cc;          /* Fondo azul */
+    color: white;                      /* Texto blanco */
+    padding: 10px 15px;                /* Espaciado interno */
+    border-radius: 8px;                /* Bordes redondeados */
+    position: sticky;                  /* Se mantiene visible al hacer scroll */
+    top: 0;                           /* Posición fija arriba */
+    z-index: 1000;                    /* Capa sobre otros elementos */
+}
+
+.hamburger {
+    font-size: 24px;                  /* Tamaño de fuente grande */
+    background: none;                 /* Sin fondo */
+    border: none;                    /* Sin borde */
+    color: white;                   /* Color blanco */
+    cursor: pointer;                /* Cursor puntero para indicar clickeable */
+}
+
+/* Menú lateral */
+.side-menu {
+    position: fixed;                 /* Fijo en la pantalla */
+    top: 60px;                      /* Separado 60px del top (debajo de la top-bar) */
+    left: 0;                       /* Pegado a la izquierda */
+    width: 200px;                  /* Ancho fijo */
+    height: calc(100% - 60px);     /* Alto total menos 60px del top */
+    background-color: #004080;      /* Fondo azul oscuro */
+    color: white;                 /* Texto blanco */
+    padding: 20px;                /* Espacio interno */
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3); /* Sombra lateral */
+    transition: transform 0.3s ease; /* Transición suave para movimientos */
+    z-index: 1000;                /* Por encima de otros elementos */
+}
+
+.side-menu ul {
+    list-style: none;             /* Quita viñetas de lista */
+}
+
+.side-menu ul li {
+    margin-bottom: 15px;          /* Espacio entre items de la lista */
+}
+
+.side-menu ul li a {
+    color: white;               /* Enlaces blancos */
+    text-decoration: none;      /* Sin subrayado */
+    font-weight: bold;          /* Negrita */
+}
+
+.side-menu.hidden {
+    transform: translateX(-100%); /* Oculta el menú moviéndolo completamente a la izquierda */
+}
+
+/* Carrito */
+.cart-container {
+    cursor: pointer;             /* Cursor puntero */
+    position: relative;          /* Para posicionar el contador */
+    font-size: 22px;             /* Tamaño del icono */
+}
+
+.cart-count {
+    position: absolute;          /* Posición absoluta relativa al contenedor */
+    top: -10px;                  /* Arriba fuera del contenedor */
+    right: -10px;                /* Derecha fuera del contenedor */
+    background-color: red;       /* Fondo rojo */
+    color: white;                /* Texto blanco */
+    border-radius: 50%;          /* Forma circular */
+    padding: 2px 6px;            /* Espaciado interno */
+    font-size: 12px;             /* Tamaño de texto pequeño */
+}
+
+.cart-modal {
+    position: fixed;             /* Fijo en pantalla */
+    top: 70px;                  /* Separado del top */
+    right: 20px;                /* Separado de la derecha */
+    background: white;           /* Fondo blanco */
+    padding: 15px;              /* Espaciado interno */
+    border-radius: 10px;        /* Bordes redondeados */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Sombra */
+    max-width: 300px;           /* Ancho máximo */
+    z-index: 1000;             /* Encima de otros elementos */
+}
+
+.cart-modal.hidden {
+    display: none;              /* Oculta el modal */
+}
+
+.cart-modal h3 {
+    margin-bottom: 10px;        /* Espacio debajo del título */
+}
+
+.cart-modal ul {
+    list-style: none;           /* Quita viñetas */
+    padding: 0;                 /* Sin relleno */
+}
+
+.cart-modal li {
+    margin-bottom: 8px;         /* Espacio entre items */
+}
+
+.cart-modal button {
+    margin-left: 10px;          /* Separación a la izquierda */
+    background: red;            /* Fondo rojo */
+    color: white;               /* Texto blanco */
+    border: none;               /* Sin borde */
+    border-radius: 4px;         /* Bordes ligeramente redondeados */
+    padding: 2px 6px;           /* Espaciado interno */
+    cursor: pointer;            /* Cursor puntero */
+}
+
+/* Buscador */
+#busqueda {
+    width: 100%;                 /* Ancho completo */
+    padding: 12px;               /* Espacio interno */
+    font-size: 16px;             /* Tamaño de letra */
+    margin-bottom: 20px;         /* Margen inferior */
+    border-radius: 8px;          /* Bordes redondeados */
+    border: none;                /* Sin borde */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Resultados */
+#resultado {
+    display: grid;               /* Usar grid para layout */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Columnas fluidas de mínimo 250px */
+    gap: 20px;                  /* Espacio entre elementos */
+}
+
+.producto {
+    background-color: white;      /* Fondo blanco */
+    padding: 20px;                /* Espacio interno */
+    border-radius: 12px;          /* Bordes redondeados */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    transition: transform 0.2s ease; /* Transición suave para hover */
+}
+
+.producto:hover {
+    transform: scale(1.02);       /* Escala ligeramente al pasar el mouse */
+}
+
+.producto h3 {
+    margin-bottom: 10px;          /* Margen inferior */
+    color: #0066cc;               /* Color azul */
+}
+
+.producto button {
+    margin-top: 10px;             /* Margen superior */
+    margin-right: 10px;           /* Margen a la derecha */
+    background-color: #007bff;    /* Fondo azul */
+    color: white;                 /* Texto blanco */
+    border: none;                 /* Sin borde */
+    padding: 8px 14px;            /* Espacio interno */
+    border-radius: 6px;           /* Bordes redondeados */
+    cursor: pointer;              /* Cursor puntero */
+}
+
+.producto button:last-child {
+    background-color: #28a745;    /* Fondo verde para el último botón */
+}
+
+.producto button:hover {
+    opacity: 0.9;                 /* Ligeramente transparente al hover */
+}
+
+/* Bienvenida */
+#bienvenida {
+    font-size: 18px;              /* Tamaño de fuente */
+    margin-bottom: 20px;          /* Margen inferior */
+    color: white;                 /* Color blanco */
+    text-align: center;           /* Centrado */
+}
+
+/* Diseño responsivo para pantallas menores a 600px */
+@media (max-width: 600px) {
+    .producto {
+      padding: 15px;             /* Menos padding */
+    }
+    .producto h3 {
+      font-size: 18px;           /* Fuente más pequeña */
+    }
+    .producto button {
+      padding: 6px 10px;         /* Botones más pequeños */
+      font-size: 14px;           /* Fuente más pequeña */
+    }
+    .top-bar {
+      flex-direction: column;    /* Flex en columna */
+      align-items: flex-start;   /* Alineación al inicio */
+    }
+}
+
+/* Imagenes de productos */
+.producto img,
+.producto-item img,
+.respuesta-box img {
+  max-width: 200px;             /* Tamaño máximo ancho */
+  margin: 10px 0;               /* Margen vertical */
+  border: 1px solid #ccc;       /* Borde gris claro */
+  border-radius: 8px;           /* Bordes redondeados */
+  cursor: pointer;              /* Cursor puntero */
+  transition: transform 0.2s ease-in-out; /* Transición suave para hover */
+}
+
+.producto img:hover,
+.producto-item img:hover,
+.respuesta-box img:hover {
+  transform: scale(1.05);       /* Escala al pasar el mouse */
+}
+
+/* Modal para imagen ampliada */
+#modal-imagen {
+  display: none;                /* Oculto por defecto */
+  position: fixed;              /* Fijo en pantalla */
+  z-index: 9999;                /* Encima de todo */
+  left: 0;                     /* Posición a la izquierda */
+  top: 0;                      /* Posición arriba */
+  width: 100vw;                /* Ancho completo de ventana */
+  height: 100vh;               /* Alto completo de ventana */
+  background-color: rgba(0, 0, 0, 0.85); /* Fondo negro semitransparente */
+  justify-content: center;     /* Centra horizontalmente */
+  align-items: center;         /* Centra verticalmente */
+}
+
+#modal-imagen img {
+  max-width: 90%;              /* Máximo ancho 90% */
+  max-height: 90%;             /* Máximo alto 90% */
+  border-radius: 10px;         /* Bordes redondeados */
+  box-shadow: 0 0 15px #000;  /* Sombra negra */
+}
